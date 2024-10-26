@@ -1,6 +1,7 @@
 ﻿amazon_books
 
-![image](https://github.com/user-attachments/assets/a54b4a63-213e-4bc9-8071-32c4acd51350)
+![image](https://github.com/user-attachments/assets/9ffb47ed-752d-495d-b6ee-e42cf05c4ed9)
+
 
 ETL Operation Overview: Fetching Amazon Books and Storing in PostgreSQL
 This project outlines the implementation of an ETL (Extract, Transform, Load) pipeline designed to fetch book data from Amazon and store it in a PostgreSQL database. Utilizing Apache Airflow for workflow orchestration and Docker for environment consistency, this pipeline automates the data ingestion process, focusing on books relevant to Data Engineering and Machine Learning.
