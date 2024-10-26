@@ -3,8 +3,8 @@
 ![image](https://github.com/user-attachments/assets/9ffb47ed-752d-495d-b6ee-e42cf05c4ed9)
 
 
-ETL Operation Overview: Fetching Amazon Books and Storing in PostgreSQL
-This project outlines the implementation of an ETL (Extract, Transform, Load) pipeline designed to fetch book data from Amazon and store it in a PostgreSQL database. Utilizing Apache Airflow for workflow orchestration and Docker for environment consistency, this pipeline automates the data ingestion process, focusing on books relevant to Data Engineering and Machine Learning.
+# ETL Operation Overview: Fetching Amazon Books and Storing in PostgreSQL
+This project outlines the implementation of an ETL (Extract, Transform, Load) pipeline designed to fetch book data from Amazon and store it in a PostgreSQL database. Utilizing Apache Airflow for workflow orchestration and Docker for environment consistency, this pipeline automates the data ingestion, focusing on books relevant to Data Engineering and Machine Learning.
 
 1. Data Extraction
 The extraction process is executed through a Python script integrated into an Apache Airflow DAG (Directed Acyclic Graph). The get_amazon_data_books function sends requests to the Amazon search results page for machine learning books, leveraging the Beautiful Soup library to parse the HTML content. Key attributes extracted from the book listings include:
@@ -13,10 +13,10 @@ Title
 Author
 Price
 Rating
-To ensure data integrity, we maintain a set of seen titles to avoid duplicates during the extraction process. The extracted book data is stored as a list of dictionaries and then converted into a pandas DataFrame for further processing.
+To ensure data integrity, we maintain a set of seen titles to avoid duplicates during extraction. The extracted book data is stored as a list of dictionaries and then converted into a pandas frame for further processing.
 
 2. Data Transformation
-In this implementation, the transformation phase is minimal, focusing primarily on data cleaning. The pipeline removes duplicates based on the title of the books, ensuring that only unique entries are loaded into the database. This transformation step is integral in maintaining a clean dataset that reflects accurate book information.
+In this implementation, the transformation phase is minimal, focusing primarily on data cleaning. The pipeline removes duplicates based on the books' titles, ensuring that only unique entries are loaded into the database. This transformation step is integral in maintaining a clean dataset that reflects accurate book information.
 
 3. Data Loading
 Once the data is transformed, it is loaded into a PostgreSQL database using the insert_book_data_into_postgres function. This function retrieves the book data from Airflow's XCom and uses the PostgresHook for seamless integration with the PostgreSQL database. The books table is created with the following schema:
